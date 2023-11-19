@@ -1,21 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   ft_swap_bits.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: phenriq2 <phenriq2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/18 17:12:21 by phenriq2          #+#    #+#             */
-/*   Updated: 2023/11/19 15:01:25 by phenriq2         ###   ########.fr       */
+/*   Created: 2023/11/19 17:47:53 by phenriq2          #+#    #+#             */
+/*   Updated: 2023/11/19 17:52:55 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINITALK_H
-# define MINITALK_H
+#include "libft.h"
 
-# include "../libft/libft.h"
-# include <signal.h>
-
-void	utils(void);
-
-#endif
+unsigned char	ft_swap_bits(unsigned char octet)
+{
+	return ((octet >> 4) | (octet << 4));
+}

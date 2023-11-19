@@ -1,21 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   ft_itobin.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: phenriq2 <phenriq2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/18 17:12:21 by phenriq2          #+#    #+#             */
-/*   Updated: 2023/11/19 15:01:25 by phenriq2         ###   ########.fr       */
+/*   Created: 2023/11/19 13:31:06 by phenriq2          #+#    #+#             */
+/*   Updated: 2023/11/19 18:18:24 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINITALK_H
-# define MINITALK_H
+#include "libft.h"
 
-# include "../libft/libft.h"
-# include <signal.h>
+char	*ft_itobin(unsigned int c)
+{
+	char	*bin;
+	int		i;
 
-void	utils(void);
-
-#endif
+	i = 7;
+	bin = ft_strnew(8);
+	while (i >= 0)
+	{
+		if (c & (1 << i))
+			bin[7 - i] = '1';
+		else
+			bin[7 - i] = '0';
+		i--;
+	}
+	return (bin);
+}

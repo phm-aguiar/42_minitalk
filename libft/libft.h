@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: phenriq2 <phenriq2@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: phenriq2 <phenriq2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 18:11:54 by phenriq2          #+#    #+#             */
-/*   Updated: 2023/10/16 12:30:59 by phenriq2         ###   ########.fr       */
+/*   Updated: 2023/11/19 17:52:47 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,8 @@ int					ft_tolower(int c);
 char				*ft_itoa(int n);
 char				*ft_itoa_base(long int nbr, char *base);
 char				*ft_itoa_unsigned(unsigned int n);
+char				*ft_itobin(unsigned int c);
+int					ft_binatoi(char *bin);
 
 // FUNCTIONS STR LIBFT
 size_t				ft_strlen(const char *msg);
@@ -76,7 +78,7 @@ char				*ft_strjoin(char const *s1, char const *s2);
 char				*ft_strtrim(char const *s1, char const *set);
 char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void				ft_striteri(char *s, void (*f)(unsigned int, char *));
-char				*ft_strnew(int counter);
+char				*ft_strnew(int len);
 void				ft_strrev(char *ptr);
 size_t				ft_count_words(char const *s, char c);
 
@@ -117,6 +119,7 @@ t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
 size_t				ft_nbrlen(long int nbr);
 size_t				ft_nbrlen_base(long int nbr, int len_base);
 int					ft_sqrt(int nb);
+int					ft_pow(int base, int exp);
 
 // FUNCTIONS GNL LIBFT
 char				*get_next_line(int fd);
@@ -143,5 +146,9 @@ int					flag_x(va_list args, int flag);
 int					flag_x2(va_list args, int flag);
 int					flag_p(va_list args);
 int					flag_space(void);
+
+// FUNCTIONS BITS LIBFT
+
+unsigned char		ft_swap_bits(unsigned char octet);
 
 #endif

@@ -1,5 +1,5 @@
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra 
 LIBFT = libft/libft.a
 SERVER = server
 CLIENT = client
