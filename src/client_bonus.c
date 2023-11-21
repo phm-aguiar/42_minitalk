@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   client.c                                           :+:      :+:    :+:   */
+/*   client_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: phenriq2 <phenriq2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 16:41:49 by phenriq2          #+#    #+#             */
-/*   Updated: 2023/11/21 14:52:53 by phenriq2         ###   ########.fr       */
+/*   Updated: 2023/11/21 14:53:04 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ int	main(int argc, char **argv)
 			send_msg(*msg, pid);
 			msg++;
 		}
+		ft_printf("\nThe Process server has received the message.\n");
 	}
 	return (0);
 }

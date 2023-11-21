@@ -6,7 +6,7 @@
 /*   By: phenriq2 <phenriq2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 17:12:21 by phenriq2          #+#    #+#             */
-/*   Updated: 2023/11/21 11:11:08 by phenriq2         ###   ########.fr       */
+/*   Updated: 2023/11/21 14:52:36 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,5 @@
 
 # include "../libft/libft.h"
 # include <signal.h>
-
-int		g_setexit = 0;
-
-void	utils(void);
-
+# include <unistd.h>
 #endif
