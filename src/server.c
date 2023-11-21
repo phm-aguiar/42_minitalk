@@ -6,49 +6,44 @@
 /*   By: phenriq2 <phenriq2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 16:51:34 by phenriq2          #+#    #+#             */
-/*   Updated: 2023/11/19 18:52:32 by phenriq2         ###   ########.fr       */
+/*   Updated: 2023/11/21 11:23:07 by phenriq2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minitalk.h"
-#include <stdlib.h>
 
-int		g_bin = -1;
-
-void	handler(int signal)
+void	handler(int signal, siginfo_t *info, void *context)
 {
+	static int	c = 0;
+	static int	bit = 0;
+
+	context = NULL;
 	if (signal == SIGUSR1)
-		g_bin = 0;
+		c += 0 << bit;
 	else if (signal == SIGUSR2)
-		g_bin = 1;
-	else
-		ft_printf("Invalid signal\n");
+		c += 1 << bit;
+	bit++;
+	if (bit == 8)
+	{
+		ft_printf("%c", c);
+		bit = 0;
+		c = 0;
+	}
+	kill(info->si_pid, SIGUSR1);
 }
 
 int	main(void)
 {
-	int		i;
-	char	*msg;
+	struct sigaction	sigact;
 
-	msg = ft_strnew(8);
-	i = 0;
+	sigact.sa_sigaction = handler;
+	sigact.sa_flags = SA_SIGINFO;
+	sigemptyset(&sigact.sa_mask);
 	ft_printf("PID: %d\n", getpid());
-	signal(SIGUSR1, handler);
-	signal(SIGUSR2, handler);
 	ft_printf("Aguardando sinal...\n");
+	sigaction(SIGUSR1, &sigact, NULL);
+	sigaction(SIGUSR2, &sigact, NULL);
 	while (1)
-	{
 		pause();
-		if (g_bin != -1)
-		{
-			msg[i++] = g_bin + '0';
-			g_bin = -1;
-		}
-		if (i == 8)
-		{
-			i = 0;
-			ft_printf("%c", ft_binatoi(msg));
-		}
-	}
 	return (0);
 }
